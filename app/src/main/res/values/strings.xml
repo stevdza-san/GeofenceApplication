@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">GeofenceApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="permission_description">In order to use this application we will first need to request location permission from you. Otherwise we will not be able to provide you with our service. If you agree and wish to continue tap on the button below.</string>
+    <string name="permission_required">Permission Required</string>
+    <string name="continue_btn">Continue</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="name">Name</string>
+    <string name="geofence">Geofence</string>
+    <string name="one_three">1/3</string>
+    <string name="two_three">2/3</string>
+    <string name="location">Location</string>
+    <string name="powered_by_google">Powered by Google</string>
+    <string name="done">DONE</string>
+    <string name="three_three">3/3</string>
+    <string name="_500_0_m">500.0 m</string>
+    <string name="choose_a_radius_for_your_geofence">Choose a radius for your Geofence.</string>
+
+    <string name="display_meters">%1$s m</string>
+    <string name="display_kilometers">%1$s km</string>
+    <string name="long_press_on_the_map_n_to_add_a_geofence">Long Press on the Map \n to Add a Geofence.</string>
+    <string name="no_geofence_found">No Geofence Found.</string>
+    <string name="radius">Radius:</string>
+    <string name="coordinates">Coordinates:</string>
+    <string name="location_txt">Location:</string>
+</resources>

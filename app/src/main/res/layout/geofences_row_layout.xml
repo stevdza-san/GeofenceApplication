@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="geofencesEntity"
+            type="com.example.geofenceapp.data.GeofenceEntity" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        handleMotionTransition="@{deleteImageView}"
+        app:layoutDescription="@xml/geofences_row_layout_scene">
+
+        <View
+            android:id="@+id/red_background"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:background="@color/red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/delete_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/red_background"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/red_background"
+            app:layout_constraintTop_toTopOf="@+id/red_background"
+            app:srcCompat="@drawable/ic_delete"
+            app:tint="@color/white" />
+
+        <View
+            android:id="@+id/white_background"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/snapshot_imageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            loadImage="@{geofencesEntity.snapshot}"
+            app:layout_constraintBottom_toBottomOf="@id/white_background"
+            app:layout_constraintStart_toStartOf="@id/white_background"
+            app:layout_constraintTop_toTopOf="@id/white_background"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/name_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{geofencesEntity.name}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/white_background"
+            app:layout_constraintStart_toEndOf="@+id/snapshot_imageView"
+            app:layout_constraintTop_toTopOf="@id/white_background" />
+
+        <TextView
+            android:id="@+id/locationName_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/location_txt"
+            app:layout_constraintStart_toStartOf="@+id/name_textView"
+            app:layout_constraintTop_toBottomOf="@+id/name_textView" />
+
+        <TextView
+            android:id="@+id/coordinates_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coordinates"
+            app:layout_constraintStart_toStartOf="@+id/locationName_textView"
+            app:layout_constraintTop_toBottomOf="@+id/locationName_textView" />
+
+        <TextView
+            android:id="@+id/radius_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radius"
+            app:layout_constraintStart_toStartOf="@+id/coordinates_textView"
+            app:layout_constraintTop_toBottomOf="@+id/coordinates_textView" />
+
+        <TextView
+            android:id="@+id/locationValue_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="46dp"
+            android:text="@{geofencesEntity.location}"
+            app:layout_constraintStart_toEndOf="@+id/locationName_textView"
+            app:layout_constraintTop_toTopOf="@+id/locationName_textView" />
+
+        <TextView
+            android:id="@+id/latitude_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            parseCoordinates="@{geofencesEntity.latitude}"
+            app:layout_constraintStart_toStartOf="@+id/locationValue_textView"
+            app:layout_constraintTop_toBottomOf="@+id/locationValue_textView" />
+
+        <TextView
+            android:id="@+id/longitude_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            parseCoordinates="@{geofencesEntity.longitude}"
+            app:layout_constraintBottom_toBottomOf="@+id/latitude_textView"
+            app:layout_constraintStart_toEndOf="@+id/latitude_textView"
+            app:layout_constraintTop_toTopOf="@+id/latitude_textView" />
+
+        <TextView
+            android:id="@+id/radiusValue_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(geofencesEntity.radius)}"
+            app:layout_constraintStart_toStartOf="@+id/latitude_textView"
+            app:layout_constraintTop_toBottomOf="@+id/latitude_textView" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

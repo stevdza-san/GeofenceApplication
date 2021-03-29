@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/permissionFragment">
+
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:name="com.example.geofenceapp.ui.permission.PermissionFragment"
+        android:label="fragment_permission"
+        tools:layout="@layout/fragment_permission" >
+        <action
+            android:id="@+id/action_permissionFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment"
+            app:popUpTo="@id/permissionFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_permissionFragment_to_add_geofence_graph"
+            app:destination="@id/add_geofence_graph"
+            app:popUpTo="@id/permissionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.geofenceapp.ui.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_geofencesFragment"
+            app:destination="@id/geofencesFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_mapsFragment_to_add_geofence_graph"
+            app:destination="@id/add_geofence_graph"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
+        <argument
+            android:name="geofenceEntity"
+            app:argType="com.example.geofenceapp.data.GeofenceEntity"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <navigation
+        android:id="@+id/add_geofence_graph"
+        app:startDestination="@id/step1Fragment">
+        <fragment
+            android:id="@+id/step1Fragment"
+            android:name="com.example.geofenceapp.ui.addgeofence.Step1Fragment"
+            android:label="fragment_step1"
+            tools:layout="@layout/fragment_step1" >
+            <action
+                android:id="@+id/action_step1Fragment_to_step2Fragment"
+                app:destination="@id/step2Fragment"
+                app:enterAnim="@anim/from_right"
+                app:exitAnim="@anim/to_left"
+                app:popEnterAnim="@anim/from_left"
+                app:popExitAnim="@anim/to_right"
+                app:popUpTo="@id/step1Fragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/step2Fragment"
+            android:name="com.example.geofenceapp.ui.addgeofence.Step2Fragment"
+            android:label="fragment_step2"
+            tools:layout="@layout/fragment_step2" >
+            <action
+                android:id="@+id/action_step2Fragment_to_step3Fragment"
+                app:destination="@id/step3Fragment"
+                app:enterAnim="@anim/from_right"
+                app:exitAnim="@anim/to_left"
+                app:popEnterAnim="@anim/from_left"
+                app:popExitAnim="@anim/to_right"
+                app:popUpTo="@id/step2Fragment"
+                app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_step2Fragment_to_step1Fragment"
+                app:destination="@id/step1Fragment"
+                app:enterAnim="@anim/from_left"
+                app:exitAnim="@anim/to_right"
+                app:popUpTo="@id/step2Fragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/step3Fragment"
+            android:name="com.example.geofenceapp.ui.addgeofence.Step3Fragment"
+            android:label="fragment_step3"
+            tools:layout="@layout/fragment_step3" >
+            <action
+                android:id="@+id/action_step3Fragment_to_step2Fragment"
+                app:destination="@id/step2Fragment"
+                app:enterAnim="@anim/from_left"
+                app:exitAnim="@anim/to_right"
+                app:popUpTo="@id/step3Fragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+    </navigation>
+    <fragment
+        android:id="@+id/geofencesFragment"
+        android:name="com.example.geofenceapp.ui.geofences.GeofencesFragment"
+        android:label="fragment_geofences"
+        tools:layout="@layout/fragment_geofences" >
+        <action
+            android:id="@+id/action_geofencesFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/geofencesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_step1Fragment_to_mapsFragment"
+        app:destination="@id/mapsFragment"
+        app:popUpTo="@id/step1Fragment"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/action_step3Fragment_to_mapsFragment"
+        app:destination="@id/mapsFragment"
+        app:popUpTo="@id/step3Fragment"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true" />
+</navigation>

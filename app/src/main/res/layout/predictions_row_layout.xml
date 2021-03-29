@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.google.android.libraries.places.api.model.AutocompletePrediction"/>
+        <variable
+            name="prediction"
+            type="AutocompletePrediction" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/city_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            setCity="@{prediction}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/country_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            setCountry="@{prediction}"
+            app:layout_constraintEnd_toEndOf="@+id/city_textView"
+            app:layout_constraintStart_toStartOf="@+id/city_textView"
+            app:layout_constraintTop_toBottomOf="@+id/city_textView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
