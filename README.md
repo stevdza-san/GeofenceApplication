@@ -1,4 +1,4 @@
-# Goefence Application (Geofence API + Places SDK) - Developed in Kotlin
+# Geofence Application (Geofence API + Places SDK) - Developed in Kotlin
 
 Geofencing + Places SDK for Android with Kotlin | Masterclass - Online Course
 
