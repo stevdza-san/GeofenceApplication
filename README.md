@@ -1,9 +1,6 @@
 # Geofence Application (Geofence API + Places SDK) - Developed in Kotlin
-
-Geofencing + Places SDK for Android with Kotlin | Masterclass - Online Course
-
-Udemy: https://www.udemy.com/course/geofencing-places-sdk-for-android-with-kotlin-masterclass/?referralCode=3BF467EDB51BA115A0E1
-<br/>
-Skillshare (Watch for Free): https://skl.sh/3rGNfeR
+<p>
+  <a href="https://stevdza-san.com/p/geofencing-places-sdk-for-android-with-kotlin-masterclass" align="center">Online Course</a>
+</p>
 
 ![alt text](https://i.postimg.cc/VNkTwPgk/Geofencing-Thumb-1.png)
