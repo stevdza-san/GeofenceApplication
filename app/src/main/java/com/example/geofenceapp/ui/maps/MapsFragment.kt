@@ -70,8 +70,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickLis
     }
 
     @SuppressLint("MissingPermission")
-    override fun onMapReady(googleMap: GoogleMap?) {
-        map = googleMap!!
+    override fun onMapReady(googleMap: GoogleMap) {
+        map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.mapstyle))
         map.isMyLocationEnabled = true
         map.setOnMapLongClickListener(this)
@@ -110,13 +110,13 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickLis
     }
 
     private fun observeDatabase() {
-        sharedViewModel.readGeofences.observe(viewLifecycleOwner, { geofenceEntity ->
+        sharedViewModel.readGeofences.observe(viewLifecycleOwner) { geofenceEntity ->
             map.clear()
             geofenceEntity.forEach { geofence ->
                 drawCircle(LatLng(geofence.latitude, geofence.longitude), geofence.radius)
                 drawMarker(LatLng(geofence.latitude, geofence.longitude), geofence.name)
             }
-        })
+        }
     }
 
     private fun backFromGeofencesFragment() {
@@ -129,9 +129,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickLis
         }
     }
 
-    override fun onMapLongClick(location: LatLng?) {
+    override fun onMapLongClick(location: LatLng) {
         if (hasBackgroundLocationPermission(requireContext())) {
-            if (sharedViewModel.geofencePrepared && location != null) {
+            if (sharedViewModel.geofencePrepared) {
                 setupGeofence(location)
             } else {
                 Toast.makeText(
