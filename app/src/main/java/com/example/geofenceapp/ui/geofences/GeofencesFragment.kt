@@ -46,10 +46,10 @@ class GeofencesFragment : Fragment() {
     }
 
     private fun observeDatabase() {
-        sharedViewModel.readGeofences.observe(viewLifecycleOwner, {
+        sharedViewModel.readGeofences.observe(viewLifecycleOwner) {
             geofencesAdapter.setData(it)
             binding.geofencesRecyclerView.scheduleLayoutAnimation()
-        })
+        }
     }
 
     override fun onDestroyView() {

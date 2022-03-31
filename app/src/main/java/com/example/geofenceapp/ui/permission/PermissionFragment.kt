@@ -44,14 +44,14 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     }
 
     private fun checkFirstLaunch() {
-        sharedViewModel.readFirstLaunch.observeOnce(viewLifecycleOwner, { firstLaunch ->
+        sharedViewModel.readFirstLaunch.observeOnce(viewLifecycleOwner) { firstLaunch ->
             if (firstLaunch) {
                 findNavController().navigate(R.id.action_permissionFragment_to_add_geofence_graph)
                 sharedViewModel.saveFirstLaunch(false)
             } else {
                 findNavController().navigate(R.id.action_permissionFragment_to_mapsFragment)
             }
-        })
+        }
     }
 
     override fun onRequestPermissionsResult(
